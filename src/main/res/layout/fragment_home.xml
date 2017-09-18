@@ -123,6 +123,7 @@
             android:gravity="center"
             android:text="惠赚钱"/>
 
+
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
