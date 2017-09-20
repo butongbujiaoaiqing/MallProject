@@ -43,5 +43,11 @@ public class MainActivity extends BaseActivity {
     public void initData() {
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ImmersionBar.with(this).destroy();
+    }
 }
 

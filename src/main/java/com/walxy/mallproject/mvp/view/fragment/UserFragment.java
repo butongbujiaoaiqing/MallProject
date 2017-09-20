@@ -130,7 +130,6 @@ public class UserFragment extends BaseFragment {
 
     protected void iii() {
         startActivity(new Intent(getActivity(), LoginActivity.class));
-        mAct.finish();
     }
 
 

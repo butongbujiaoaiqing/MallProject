@@ -28,8 +28,8 @@ public class ClassFragment extends BaseFragment {
     @BindView(R.id.rcy)
     RecyclerView mRcy;
     Unbinder unbinder;
-    @BindView(R.id.rcy2)
-    RecyclerView mRcy2;
+/*    @BindView(R.id.rcy2)
+    RecyclerView mRcy2;*/
     private String path = "http://169.254.148.115/mobile/index.php?act=goods_class";
     private String path2 = "http://169.254.148.115/mobile/index.php?act=goods_class&gc_id=1";
 
@@ -74,7 +74,7 @@ public class ClassFragment extends BaseFragment {
 
     @Override
     protected void initData() {
-        LinearLayoutManager manager2 = new LinearLayoutManager(getActivity());
+   /*     LinearLayoutManager manager2 = new LinearLayoutManager(getActivity());
         mRcy2.setLayoutManager(manager2);
 
 
@@ -92,7 +92,7 @@ public class ClassFragment extends BaseFragment {
                 mRcy2.setAdapter(mRecyclerViewAdapter2);
                 mRecyclerViewAdapter2.notifyDataSetChanged();
             }
-        });
+        });*/
 
 
     }

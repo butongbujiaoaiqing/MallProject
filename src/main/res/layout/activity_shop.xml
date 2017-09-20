@@ -48,8 +48,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_weight="1.5"
-            android:background="#f00"
-            android:text="删除"
+            android:background="#0000"
             android:textColor="#fff"></Button>
 
         <ImageView
@@ -98,6 +97,7 @@
 
                     <ImageView
                         android:layout_width="wrap_content"
+                        android:layout_gravity="center"
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:src="@mipmap/shops"/>
@@ -107,7 +107,6 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="10dp"
                         android:text="购物车是空的"
-                        android:textColor="#f00"
                         android:textSize="16sp"/>
                 </LinearLayout>
 
@@ -145,6 +144,7 @@
 
                 <ImageView
                     android:layout_width="wrap_content"
+                    android:layout_gravity="center"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/tuijian"/>
 
@@ -198,6 +198,4 @@
             android:text="已选中（ ）"
             android:textColor="#fff"/>
     </LinearLayout>
-
-
 </LinearLayout>

@@ -141,7 +141,7 @@ public class ZhuCeActivity extends BaseActivity {
                                 Intent intent = new Intent(ZhuCeActivity.this, LoginActivity.class);
                                 startActivity(intent);
                                 //结束获取验证码的倒计时。。。。
-                                mTimeCount.cancel();
+
                                 finish();
                             } else {
                                 Toast toast = makeText(ZhuCeActivity.this, "密码格式有误", Toast.LENGTH_SHORT);

@@ -53,5 +53,4 @@ public class Main2Activity extends AppCompatActivity {
             timer.cancel();
         }
     }
-
 }
