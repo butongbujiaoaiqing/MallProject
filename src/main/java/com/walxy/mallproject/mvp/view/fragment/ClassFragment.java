@@ -30,8 +30,8 @@ public class ClassFragment extends BaseFragment {
     Unbinder unbinder;
 /*    @BindView(R.id.rcy2)
     RecyclerView mRcy2;*/
-    private String path = "http://169.254.148.115/mobile/index.php?act=goods_class";
-    private String path2 = "http://169.254.148.115/mobile/index.php?act=goods_class&gc_id=1";
+    private String path = "http://169.254.49.93/mobile/index.php?act=goods_class";
+    private String path2 = "http://169.254.49.93/mobile/index.php?act=goods_class&gc_id=1";
 
     private ClassAdapter mClassAdapter;
     private List<ClassBean.DatasBean.ClassListBean> mClassListBean = new ArrayList<>();
