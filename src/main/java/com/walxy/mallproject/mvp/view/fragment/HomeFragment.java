@@ -19,7 +19,6 @@ import com.library.zxing.activity.QRCodeScanActivity;
 import com.walxy.mallproject.R;
 import com.walxy.mallproject.mvp.model.adapter.HomeAdapter;
 import com.walxy.mallproject.mvp.model.bean.Databean;
-import com.walxy.mallproject.mvp.view.AppConstans;
 import com.walxy.mallproject.mvp.view.DividerGridItemDecoration;
 import com.walxy.mallproject.utils.GlideImageLoader;
 import com.walxy.mallproject.utils.OkHttp;
@@ -72,7 +71,7 @@ public class HomeFragment extends QRCodeScanActivity {
     };
     private View view;
     private Unbinder unbinder;
-    int page = 3;
+    String page = "http://apiv3.yangkeduo.com/v4/goods?page=9&size=505&list_id=1573810071&platform=2";
     private List<Databean.GoodsListBean> mGoodsListBeen = new ArrayList<>();
     private HomeAdapter mAdapter;
     private SwipeRefreshLayout mSw;
@@ -109,7 +108,7 @@ public class HomeFragment extends QRCodeScanActivity {
     }
 
     private void initOkHttp() {
-        OkHttp.getAsync(AppConstans.CLASSFY_BASE.BASE_HOME_URL + page + AppConstans.CLASSFY_BASE.BASE_HOME_URL_TWO, new OkHttp.DataCallBack() {
+        OkHttp.getAsync(page, new OkHttp.DataCallBack() {
             @Override
             public void requestFailure(Request request, IOException e) {
                 Toast.makeText(getActivity(), "数据请求失败了2333333", Toast.LENGTH_SHORT).show();
