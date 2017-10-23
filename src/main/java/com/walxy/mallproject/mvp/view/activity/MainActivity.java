@@ -6,8 +6,7 @@ import com.gyf.barlibrary.ImmersionBar;
 import com.hjm.bottomtabbar.BottomTabBar;
 import com.walxy.mallproject.R;
 import com.walxy.mallproject.base.BaseActivity;
-import com.walxy.mallproject.mvp.view.fragment.ClassFragment;
-import com.walxy.mallproject.mvp.view.fragment.FindFragment;
+import com.walxy.mallproject.mvp.view.fragment.ClassfyFragment;
 import com.walxy.mallproject.mvp.view.fragment.HomeFragment;
 import com.walxy.mallproject.mvp.view.fragment.ShopFragment;
 import com.walxy.mallproject.mvp.view.fragment.UserFragment;
@@ -32,14 +31,12 @@ public class MainActivity extends BaseActivity {
                 .setTabPadding(4, 6, 10)
                 .setChangeColor(Color.RED, Color.DKGRAY)
                 .addTabItem("首页", R.drawable.aby, R.drawable.abx, HomeFragment.class)
-                .addTabItem("分类", R.drawable.abu, R.drawable.abt, ClassFragment.class)
-                .addTabItem("发现", R.drawable.abw, R.drawable.abv, FindFragment.class)
+                .addTabItem("分类", R.drawable.abu, R.drawable.abt, ClassfyFragment.class)
                 .addTabItem("购物车", R.drawable.abs, R.drawable.abr, ShopFragment.class)
                 .addTabItem("我的", R.drawable.ac0, R.drawable.abz, UserFragment.class)
                 .isShowDivider(true);
     }
 
-    @Override
     public void initData() {
 
     }
@@ -50,4 +47,3 @@ public class MainActivity extends BaseActivity {
         ImmersionBar.with(this).destroy();
     }
 }
-

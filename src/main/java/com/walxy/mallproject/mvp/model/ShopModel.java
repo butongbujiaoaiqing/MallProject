@@ -11,7 +11,7 @@ import okhttp3.Response;
 
 
 public class ShopModel {
-    private String shopurl = "http://apiv3.yangkeduo.com/v5/newlist?page=3";
+    private String shopurl = "http://apiv3.yangkeduo.com/v4/goods?page=1&size=505&list_id=1573810071&platform=2";
 
     public ShopModel() {
     }

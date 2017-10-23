@@ -20,6 +20,13 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import jp.wasabeef.glide.transformations.CropCircleTransformation;
 
+/**
+ * 愿意留下来与你争吵的人才是真正爱你的人    --<-<-<@
+ * <p>
+ * 作者：王兵洋 on 2017/10/20 09:36
+ * <p>
+ * 类的作用：
+ */
 public class SettingActivity extends BaseActivity {
 
     @BindView(R.id.z_setting)

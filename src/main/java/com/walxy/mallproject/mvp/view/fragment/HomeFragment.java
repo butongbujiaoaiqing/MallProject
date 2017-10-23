@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.annotation.Nullable;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -16,8 +17,10 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 import com.library.zxing.activity.QRCodeScanActivity;
 import com.walxy.mallproject.R;
-import com.walxy.mallproject.mvp.model.Databean;
-import com.walxy.mallproject.mvp.model.HomeAdapter;
+import com.walxy.mallproject.mvp.model.adapter.HomeAdapter;
+import com.walxy.mallproject.mvp.model.bean.Databean;
+import com.walxy.mallproject.mvp.view.AppConstans;
+import com.walxy.mallproject.mvp.view.DividerGridItemDecoration;
 import com.walxy.mallproject.utils.GlideImageLoader;
 import com.walxy.mallproject.utils.OkHttp;
 import com.youth.banner.Banner;
@@ -51,10 +54,11 @@ public class HomeFragment extends QRCodeScanActivity {
     RecyclerView mRcy;
 
     private List<String> list = new ArrayList<>();
-    private String[] arr = new String[]{"http://img5.imgtn.bdimg.com/it/u=4267222417,1017407570&fm=200&gp=0.jpg ",
-            "http://img4.imgtn.bdimg.com/it/u=1590736614,1368131788&fm=27&gp=0.jpg",
-            "http://img4.imgtn.bdimg.com/it/u=228206913,3268878643&fm=27&gp=0.jpg",
-            "http://img3.imgtn.bdimg.com/it/u=1766390445,1488273756&fm=27&gp=0.jpgd"};
+    private String[] arr = new String[]{"http://ads-cdn.chuchujie.com/fdd57d5d6a16d9958bc0a48247ce25dd.jpg?&",
+            "http://ads-cdn.chuchujie.com/b4c88d8c57fe98872180745488467165.jpg?&",
+            "http://ads-cdn.chuchujie.com/08287bc153aeea39d77e1b5f366bd707.png?&",
+            "http://ads-cdn.chuchujie.com/aabc330a199831dadb720974d092d554.png?&",
+            "http://ads-cdn.chuchujie.com/845260da449cc8f19a315d011d6e5745.png?&"};
     private Handler handler = new Handler() {
         @Override
         public void handleMessage(Message msg) {
@@ -68,10 +72,11 @@ public class HomeFragment extends QRCodeScanActivity {
     };
     private View view;
     private Unbinder unbinder;
-    private String path = "http://apiv3.yangkeduo.com/v5/newlist?page";
-    int page =1;
+    int page = 3;
     private List<Databean.GoodsListBean> mGoodsListBeen = new ArrayList<>();
     private HomeAdapter mAdapter;
+    private SwipeRefreshLayout mSw;
+    private GridLayoutManager mGridLayoutManager;
 
 
     @Nullable
@@ -79,6 +84,7 @@ public class HomeFragment extends QRCodeScanActivity {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         view = inflater.inflate(R.layout.fragment_home, null);
         unbinder = ButterKnife.bind(this, view);
+        initView(view);
         return view;
     }
 
@@ -86,20 +92,24 @@ public class HomeFragment extends QRCodeScanActivity {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+
+        mGridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        mRcy.setLayoutManager(mGridLayoutManager);
+        mRcy.addItemDecoration(new DividerGridItemDecoration(getActivity()));
+
         mBanner.setImageLoader(new GlideImageLoader(getActivity()))
                 .setBannerStyle(BannerConfig.CIRCLE_INDICATOR)
                 .setIndicatorGravity(BannerConfig.CENTER);
         Message msg = Message.obtain();
         msg.what = 1;
         handler.sendMessage(msg);
-        /**
-         * RecyclerView获取网络数据
-         */
+        //RecyclerView获取网络数据
+        initOkHttp();
 
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
-        mRcy.setLayoutManager(gridLayoutManager);
+    }
 
-        OkHttp.getAsync(path + page, new OkHttp.DataCallBack() {
+    private void initOkHttp() {
+        OkHttp.getAsync(AppConstans.CLASSFY_BASE.BASE_HOME_URL + page + AppConstans.CLASSFY_BASE.BASE_HOME_URL_TWO, new OkHttp.DataCallBack() {
             @Override
             public void requestFailure(Request request, IOException e) {
                 Toast.makeText(getActivity(), "数据请求失败了2333333", Toast.LENGTH_SHORT).show();
@@ -114,8 +124,6 @@ public class HomeFragment extends QRCodeScanActivity {
                 mAdapter.notifyDataSetChanged();
             }
         });
-
-
     }
 
 
@@ -132,5 +140,13 @@ public class HomeFragment extends QRCodeScanActivity {
             case R.id.banner:
                 break;
         }
+    }
+
+
+
+    /* 听风与我讲你  */
+
+    private void initView(View view) {
+        mSw = (SwipeRefreshLayout) view.findViewById(R.id.sw);
     }
 }

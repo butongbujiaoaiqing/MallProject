@@ -19,9 +19,9 @@ import android.widget.TextView;
 
 import com.google.gson.Gson;
 import com.walxy.mallproject.R;
-import com.walxy.mallproject.mvp.model.Databean;
-import com.walxy.mallproject.mvp.model.ShopAdapter;
-import com.walxy.mallproject.mvp.model.ShopAdapters;
+import com.walxy.mallproject.mvp.model.bean.Databean;
+import com.walxy.mallproject.mvp.model.adapter.ShopAdapter;
+import com.walxy.mallproject.mvp.model.adapter.ShopAdapters;
 import com.walxy.mallproject.mvp.presenter.ShopPresenter;
 import com.walxy.mallproject.mvp.view.IShopActivity;
 
