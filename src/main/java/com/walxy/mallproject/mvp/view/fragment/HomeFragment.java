@@ -71,7 +71,7 @@ public class HomeFragment extends QRCodeScanActivity {
     };
     private View view;
     private Unbinder unbinder;
-    String page = "http://apiv3.yangkeduo.com/v4/goods?page=9&size=505&list_id=1573810071&platform=2";
+    private String page2 = "http://apiv3.yangkeduo.com/v3/operation/4/groups?opt_type=1&offset=0&sort_type=DEFAULT&size=50&pdduid=";
     private List<Databean.GoodsListBean> mGoodsListBeen = new ArrayList<>();
     private HomeAdapter mAdapter;
     private SwipeRefreshLayout mSw;
@@ -108,7 +108,7 @@ public class HomeFragment extends QRCodeScanActivity {
     }
 
     private void initOkHttp() {
-        OkHttp.getAsync(page, new OkHttp.DataCallBack() {
+        OkHttp.getAsync(page2, new OkHttp.DataCallBack() {
             @Override
             public void requestFailure(Request request, IOException e) {
                 Toast.makeText(getActivity(), "数据请求失败了2333333", Toast.LENGTH_SHORT).show();

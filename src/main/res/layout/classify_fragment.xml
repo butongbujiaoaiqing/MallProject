@@ -6,7 +6,7 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="25dp"
+        android:layout_height="40dp"
         android:background="@color/grey"></View>
 
     <include layout="@layout/title_bar"></include>

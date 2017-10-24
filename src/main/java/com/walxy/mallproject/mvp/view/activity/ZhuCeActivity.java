@@ -45,7 +45,7 @@ public class ZhuCeActivity extends BaseActivity {
     EditText mZcPwd;
     @BindView(R.id.zc_btn)
     Button mZcBtn;
-    public EventHandler eh; //事件接收器
+    public EventHandler eh = new EventHandler(); //事件接收器
     @BindView(R.id.cb_login)
     CheckBox mCbLogin;
     private TimeCount mTimeCount;//计时器
